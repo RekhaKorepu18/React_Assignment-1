@@ -1,13 +1,40 @@
 body {
-  margin: 0;
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+  background-image:url("https://st3.depositphotos.com/26794494/34957/i/450/depositphotos_349579424-stock-photo-blurred-image-evening-city-rain.jpg");
+  background-size: cover;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.photo1 {
+  height: 150px;
+  width: 150px; 
+}
+.para {
+  color: rgb(106, 21, 75);
+}
+.places {
+ 
+  /* align-items :center; */
+   justify-content: center;
+   display: flex;
+   padding : 20px;
+   margin: auto;
+   position : relative;
+   /* padding: 10px; */
+}
+.btn{
+  margin-top: 20;
+  text-align: center;
+}
+.website {
+  margin-top: 20;
+  padding : 20px;
 }
