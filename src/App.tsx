@@ -25,7 +25,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Click here to explore more places in banglore.
+          Click here to explore more places in Banglore city.
         </a>
     </div>
   );
