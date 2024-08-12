@@ -8,6 +8,7 @@ export type TitemData= {
     discountRate?: number;
   
   }
+
 export const discountItemData: TitemData[] = [
     {
       imageUrl: "assets/Crisscross _A-Line _Dress.jpeg",
@@ -106,3 +107,12 @@ export const discountItemData: TitemData[] = [
       isAvailable : true
      }
     ];
+
+export function filteredData(search: string){ 
+  return  itemData.filter((item) =>
+  item.name.toLowerCase().includes(search.toLowerCase())
+)};
+export function filteredDiscountData(search: string){ 
+  return  discountItemData.filter((item) =>
+  item.name.toLowerCase().includes(search.toLowerCase())
+)};

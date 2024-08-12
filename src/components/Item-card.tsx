@@ -3,9 +3,11 @@ import { FaHeart } from "react-icons/fa";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { TitemData } from '../data';
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
-export default function ItemCard({itemData, cart, updateCart }: {itemData : TitemData[], cart: number, updateCart: any}){
+export default function ItemCard({itemData, cart, updateCart}: {itemData : TitemData[], cart: number, updateCart: any}){
    // console.log(itemData);
    const [wishlist, setWishlist] = useState<boolean[]>(itemData.map(() => false));
    const [cartState, setCartState] = useState<boolean[]>(itemData.map(() => false));
@@ -17,6 +19,12 @@ export default function ItemCard({itemData, cart, updateCart }: {itemData : Tite
          return newlist;
       } )
    }
+
+   const handleClick = (event: any) => {
+      event.currentTarget.disabled = true;
+      toast.info("Notify me when the item is available!");
+   
+}
 
    const handleCart = (idx: number) => {
       setCartState(prevCart => {
@@ -33,9 +41,7 @@ export default function ItemCard({itemData, cart, updateCart }: {itemData : Tite
         return newCart;
       });
     };
-   //   function handleCart(){
-   //     updateCart(cart+1);
-   //   }
+
 
     return (
        <div className ="item "> 
@@ -62,7 +68,9 @@ export default function ItemCard({itemData, cart, updateCart }: {itemData : Tite
             {item.isAvailable ?  <FaHeart
                     className={`heart-icon ${wishlist[index] ? 'red' : 'white'}`}
                     onClick={() => toggleWishlist(index)}
-                  />: <button>Notify me</button>} 
+                  />: <div><button onClick={handleClick}>Notify me</button>
+                          <ToastContainer />  </div>
+                        } 
            
             </div>
             <div className="discount-item">
