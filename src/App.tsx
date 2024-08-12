@@ -1,23 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import Header from './components/header'
+import ItemCard from './components/Item-card';
 import './App.css';
+import { discountItemData } from './data';
+import { itemData } from './data';
+
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+            <Header />
+            <div className="discount-description">
+            <h1><strong>Exclusive Deals</strong> </h1>
+            <p>Get it on te trend wit our curated selection of best-selling styles.</p>
+            </div>
+            <ItemCard  itemData={discountItemData} />
+            <h1 className="item-title"><strong>Order amazing products</strong></h1>
+            <div className ="discount-items"><ItemCard  itemData={itemData} /></div>
+          
       </header>
     </div>
   );
