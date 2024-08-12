@@ -1,15 +1,14 @@
 import '../App.css';
-// src/index.js or src/index.tsx
-import { BsHeart } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { TitemData } from '../data';
 import React, { useState } from 'react';
 
 
-export default function ItemCard({itemData, cart, updateCart }: {itemData : TitemData[], cart: any, updateCart: any}){
+export default function ItemCard({itemData, cart, updateCart }: {itemData : TitemData[], cart: number, updateCart: any}){
    // console.log(itemData);
    const [wishlist, setWishlist] = useState<boolean[]>(itemData.map(() => false));
+   const [cartState, setCartState] = useState<boolean[]>(itemData.map(() => false));
 
    const toggleWishlist = (idx: number) => {
       setWishlist(isLikedArray => {
@@ -19,10 +18,24 @@ export default function ItemCard({itemData, cart, updateCart }: {itemData : Tite
       } )
    }
 
-
-     function handleCart(){
-       updateCart(cart+1);
-     }
+   const handleCart = (idx: number) => {
+      setCartState(prevCart => {
+        const newCart = [...prevCart];
+        newCart[idx] = !newCart[idx];
+        
+        // Increment or decrement cart count
+        if (newCart[idx]) {
+          updateCart(cart + 1);
+        } else {
+          updateCart(cart - 1);
+        }
+  
+        return newCart;
+      });
+    };
+   //   function handleCart(){
+   //     updateCart(cart+1);
+   //   }
 
     return (
        <div className ="item "> 
@@ -44,7 +57,8 @@ export default function ItemCard({itemData, cart, updateCart }: {itemData : Tite
             <div> {item.rating} ⭐</div>
             </div>
             <div className ="wishlist-notify">
-            <button className='add-cart' onClick={() =>handleCart()}> Add to cart </button>
+            <button className='add-cart' onClick={() =>handleCart(index)}> {cartState[index] ? 'Remove from cart' : 'Add to cart'}
+            </button>
             {item.isAvailable ?  <FaHeart
                     className={`heart-icon ${wishlist[index] ? 'red' : 'white'}`}
                     onClick={() => toggleWishlist(index)}
