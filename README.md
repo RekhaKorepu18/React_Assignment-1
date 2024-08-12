@@ -15,3 +15,11 @@ Runs the app in the development mode.
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+
+### @Here is the screenshots for your reference.
+### Home page for products
+![alt text](Hanami_store_imagecards.png)
+
+## Discount products
+![alt text](<Discount sale_images.png>)
+

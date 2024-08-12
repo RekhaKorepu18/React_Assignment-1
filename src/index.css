@@ -61,6 +61,21 @@ body, html {
   height: 30px;
   cursor: pointer;
 }
+.cart-count {
+  position: absolute;
+  top: 1px; 
+  right: 100px; 
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
 
 .login-button {
   font-size: 16px;
@@ -151,4 +166,14 @@ body, html {
   margin-right: 20%;
   background-image: linear-gradient(to top, #ebc0fd 0%, #d9ded8 100%);
  
+}
+.heart-icon.red {
+  color: red;
+}
+.heart-icon.white{
+  color: white;
+  /* border: 2px solid  black; */
+  border-radius: 0px 0px;
+  stroke: black;
+  stroke-width: 40px;
 }
