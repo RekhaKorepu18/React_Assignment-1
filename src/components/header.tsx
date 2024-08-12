@@ -1,7 +1,7 @@
 import '../App.css';
 import { FaShoppingCart } from 'react-icons/fa';
 
-export default function Header(){
+export default function Header({count}: {count: number}){
     return (
         <>
         <nav className="header-box">
@@ -13,6 +13,7 @@ export default function Header(){
                 </div>
                 <div className="cart-icon">
                     <img src="/assets/cart_icon.png" alt="Cart Icon" />
+                    {count > 0 && <div className="cart-count">{count}</div>}
                 </div>
                 <button className="login-button">LogIn</button>
             </div>
