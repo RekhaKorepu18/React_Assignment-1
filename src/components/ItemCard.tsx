@@ -2,7 +2,7 @@ import '../App.css';
 import { FaHeart } from "react-icons/fa";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { TitemData } from '../Types/products';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -37,11 +37,18 @@ export default function ItemCard({
   };
 
   const handleClick = (id: number) => {
-     setNotify((prev: any) => ({
-      ...prev, [id]:true
-     }));
+    if (notify[id]=== undefined) {
+      return;
+    }
+    console.log("hi",notify[id]);
+     setNotify((prev: any) => {
+      const updatedNotify = {...prev, [id]:!prev[id]};
+      return updatedNotify;
+        
+     });
      toast.info("Notify me when the item is available!");
-  }
+     console.log("hello",notify[id]);
+}
 
   const handleCart = (id: number) => {
     setCartState((prevCartState: any[]) => {
@@ -87,8 +94,7 @@ export default function ItemCard({
                     />
                   ) : (
                     <div>
-                      <button className="notify-button" onClick={()=>handleClick(item.id)} disabled={notify[item.id]}>Notify</button>
-                      <ToastContainer />
+                      <button className="notify-button" onClick={()=>handleClick(item.id)}   disabled={notify[item.id] === true}>Notify</button>
                     </div>
                   )}
                 </div>
