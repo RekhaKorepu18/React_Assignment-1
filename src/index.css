@@ -23,19 +23,26 @@ body, html {
 .title {
   font-size: 24px;
   font-weight: bold;
-  color: white;
+  color: black;
   margin-right: auto;
 }
 
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 20px; /* Space between search bar, cart icon, and login button */
+  gap: 20px; 
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+ 
 }
 
 .search-container {
   position: relative;
   width: 300px;
+  gap: 20px;
 }
 
 .search-bar {
@@ -45,7 +52,12 @@ body, html {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-
+.store-icon {
+  
+  width: 30px;
+  height: 30px;
+ 
+}
 .search-icon {
   position: absolute;
   right: 10px;
@@ -126,7 +138,7 @@ body, html {
  
 }
 .item-image:hover {
-  filter: brightness(120%); /* Increasing brightness */
+  filter: brightness(100%); 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
   transform: scale(1.05); 
 }
@@ -143,7 +155,8 @@ body, html {
   margin-bottom: 3%;
   border-radius : 4px;
   justify-content: center;
-  gap : 50px;
+  gap : 20px;
+  display: flex;
   
 }
 .discount-description {
@@ -156,6 +169,10 @@ body, html {
 }
 .discount-items {
   justify-content: center;
+  
+}
+.discount {
+  color: red;
 }
 .heart-icon {
  
@@ -164,8 +181,9 @@ body, html {
 }
 .add-cart  {
   margin-right: 20%;
+  border-radius : 8px;
   background-image: linear-gradient(to top, #ebc0fd 0%, #d9ded8 100%);
- 
+  width : 100px;
 }
 .heart-icon.red {
   color: red;
@@ -176,4 +194,19 @@ body, html {
   border-radius: 0px 0px;
   stroke: black;
   stroke-width: 40px;
+}
+.notify-button {
+  background-color: lightgreen;
+  border-radius : 8px;
+  margin-left: 10px;
+  width : 100px;
+}
+/*===============*/
+.exclusive-deals {
+  justify-content: center;
+  display: flex;
+
+}
+.our-products {
+  display: flex;
 }
