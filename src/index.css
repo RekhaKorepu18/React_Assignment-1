@@ -210,3 +210,37 @@ body, html {
 .our-products {
   display: flex;
 }
+/*====================Individual Page========*/
+.product-page {
+  padding: 20px;
+}
+
+.size-options {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.size-container {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 5px;
+}
+
+.size-container.selected {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.size-container:hover {
+  background-color: #f1f1f1;
+}
+
+/* button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+} */

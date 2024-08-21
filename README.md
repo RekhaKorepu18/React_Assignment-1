@@ -30,17 +30,7 @@ Runs the app in the development mode.
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### screenshots
-Discounted items
-![alt text](<Screenshot 2024-08-14 at 10.44.28 AM-1.png>)
-Products
-![alt text](<Screenshot 2024-08-14 at 10.44.48 AM.png>)
 
-Searching Products
-![alt text](<Screenshot 2024-08-14 at 10.45.14 AM.png>)
-
-### Technologies Used
-React JS
 
 
 

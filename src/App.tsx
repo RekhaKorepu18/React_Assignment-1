@@ -1,24 +1,23 @@
 import { ToastContainer } from 'react-toastify';
 import { RenderProducts } from './components/Header';
-import { discountItemData } from './data';
-import { itemData } from './data';
-import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { StateProvider } from './StateContex';
+import ItemPage from './pages/IndividualProduct';
 
 
 function App() {
-    const combinedData = [...itemData, ...discountItemData];
-   const [wishlist, setWishlist] = useState<boolean[]>(combinedData.map(() => false));
-    const [cart, setCart] = useState(0);
-    const [cartState, setCartState] = useState<boolean[]>(combinedData.map(() => false));
-    const [search, setSearch] = useState('');
-    const [notify, setNotify] = useState<boolean[]>(combinedData.map(() => false));
-    return(
-      <>
-    <ToastContainer />
-    <RenderProducts cart={cart} setCart={setCart} cartState={cartState} setCartState={setCartState} wishlist={wishlist} setWishlist={setWishlist} notify={notify} setNotify={setNotify} search={search} setSearch={setSearch} />
-   
-    </> )
-  }
+  return (
+    <StateProvider>
+      <Router>
+        <ToastContainer />
+        <Routes>
+          <Route path="/" element={<RenderProducts />} />
+          <Route path="/product/:id" element={<ItemPage />} />
+        </Routes>
+      </Router>
+    </StateProvider>
+  );
+}
 
   
 export default App;
