@@ -4,14 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { TitemData } from '../Types/products';
 import { toast } from 'react-toastify';
 import { useGlobalState } from '../StateContex';
+import { combinedData } from '../data';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
 
-
 export default function ItemCard({itemData}: {itemData: TitemData[]}) {
 
-  const { wishlist, setWishlist, cart, setCart, cartState, setCartState,notify, setNotify } = useGlobalState();
+  const { wishlist, setWishlist, cart, setCart, cartState, setCartState,notify, setNotify, cartItem,setCartItem, selectedSize, setSelectedSize } = useGlobalState();
 
   const navigate = useNavigate();
  
@@ -39,7 +39,11 @@ export default function ItemCard({itemData}: {itemData: TitemData[]}) {
 }
 
   const handleCart = (id: number) => {
-
+    if (cartState[id]) {
+      // If the item is already in the cart, navigate to the cart page
+      navigate('/cart');
+    }
+    else {
     setCartState((prevCartState: any[]) => {
       const newCartState = {
         ...prevCartState,
@@ -48,11 +52,26 @@ export default function ItemCard({itemData}: {itemData: TitemData[]}) {
 
       if (newCartState[id]) {
         setCart(cart + 1);
-      } 
-      
+      }
 
+      const product: any= combinedData.find((item)=> item.id===id);
+      //setCartItem((prevCart: TitemData[])=> [...prevCart, product]);
+      if(!(cartItem.includes(product))){
+        setCartItem((prevCart: TitemData[])=> [...prevCart, product]);
+        }
+
+        if (!(selectedSize[product.id])) {
+          setSelectedSize((prevSize: string[]) => ({
+            ...prevSize,
+            [product.id]: 'M',
+          }));
+        }
+        console.log(selectedSize[product.id]);
+        
+      
       return newCartState;
     });
+  }
   };
 
   const goToProductPage = (id: number) => {
@@ -76,9 +95,9 @@ export default function ItemCard({itemData}: {itemData: TitemData[]}) {
                   <div>{item.rating} ⭐</div>
                 </div>
                 <div className="wishlist-notify">
-                  <button className='add-cart' onClick={() => handleCart(item.id)} disabled={cartState[item.id] === true} >
-                    {/* {cartState[item.id] ? 'Remove' : 'Add to cart'} */}
-                    Add to cart
+                  <button className='add-cart' onClick={() => handleCart(item.id)} >
+                     {cartState[item.id] ? 'Go to Cart' : 'Add to cart'} 
+                  
                   </button>
                   {item.isAvailable ? (
                     <FaHeart

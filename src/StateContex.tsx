@@ -24,9 +24,11 @@ export const StateProvider= ({ children }: {children: ReactNode} ) => {
     const [search, setSearch] = useState('');
     const [notify, setNotify] = useState<boolean[]>(combinedData.map(() => false));
     const [cartItem, setCartItem] = useState<TitemData[]>([]);
+    const [selectedSize, setSelectedSize] = useState<string[]>(['M']);
+ 
     return (
         <StateContext.Provider
-          value={{ wishlist, setWishlist, cart, setCart, cartState, setCartState, search, setSearch, notify, setNotify, cartItem, setCartItem }}
+          value={{ wishlist, setWishlist, cart, setCart, cartState, setCartState, search, setSearch, notify, setNotify, cartItem, setCartItem, selectedSize, setSelectedSize }}
         >
           {children}
         </StateContext.Provider>

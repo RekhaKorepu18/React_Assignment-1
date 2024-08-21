@@ -15,7 +15,7 @@ export default function Header({count, searchItem, setSearchItem}: {count: numbe
         <>
         <nav className="header-box">
             <div className="nav-left">
-            <img src="/assets/Store_icon.png" alt="store" className="store-icon" />
+            <img src="/assets/Store_icon.png" alt="store" className="store-icon"  />
             <h1 className="title">Hanami</h1>
             </div>
             <div className="nav-right">
