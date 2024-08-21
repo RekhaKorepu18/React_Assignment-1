@@ -30,6 +30,10 @@ const ItemPage = () => {
 
   const handleAddToCart = (product: TitemData) => {
    
+    if (!selectedSize[product.id]) {
+      toast.error("Please select a size before adding to cart.");
+      return;
+    }
 
     const itemInCart = cartItem.find(
       (item: any) => item.id===product.id && selectedSize[product.id]===item.selectedSize
