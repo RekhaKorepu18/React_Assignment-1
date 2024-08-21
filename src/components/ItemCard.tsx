@@ -14,7 +14,7 @@ export default function ItemCard({itemData}: {itemData: TitemData[]}) {
   const { wishlist, setWishlist, cart, setCart, cartState, setCartState,notify, setNotify, cartItem,setCartItem, selectedSize, setSelectedSize } = useGlobalState();
 
   const navigate = useNavigate();
- 
+  
   
    const toggleWishlist = (id: number) => {
     setWishlist((prevWishlist: any[]) => {
@@ -39,39 +39,47 @@ export default function ItemCard({itemData}: {itemData: TitemData[]}) {
 }
 
   const handleCart = (id: number) => {
+    const product: any = combinedData.find((item) => item.id === id);
+
+    if (!product) return;
     if (cartState[id]) {
-      // If the item is already in the cart, navigate to the cart page
       navigate('/cart');
-    }
-    else {
-    setCartState((prevCartState: any[]) => {
-      const newCartState = {
-        ...prevCartState,
-        [id]: !prevCartState[id]
-      };
-
-      if (newCartState[id]) {
+    } else {
+      setCartState((prevCartState: any[]) => {
+        const newCartState = { ...prevCartState, [id]: true };
         setCart(cart + 1);
-      }
+        const itemInCart = cartItem.find(
+          (item: any) => item.id === product.id && selectedSize[product.id] === item.selectedSize
+        );
+    if (itemInCart) {
+          
+          setCartItem((prevCart: any[]) =>
+            prevCart.map((item) =>
+              item.id === product.id && item.selectedSize === selectedSize[product.id]
+                ? { ...item, quantity: item.quantity + 1 }
+                : item
+            )
+          );
+        } else {
+          setCartItem((prevCart: any[]) => [
+            ...prevCart,
+            { ...product, quantity: 1, selectedSize: selectedSize[product.id] || 'M' },
+          ]);
+          setCart(cart + 1);
 
-      const product: any= combinedData.find((item)=> item.id===id);
-      //setCartItem((prevCart: TitemData[])=> [...prevCart, product]);
-      if(!(cartItem.includes(product))){
-        setCartItem((prevCart: TitemData[])=> [...prevCart, product]);
-        }
 
-        if (!(selectedSize[product.id])) {
-          setSelectedSize((prevSize: string[]) => ({
-            ...prevSize,
-            [product.id]: 'M',
-          }));
+          if (!selectedSize[product.id]) {
+            setSelectedSize((prevSize: string[]) => ({
+              ...prevSize,
+              [product.id]: 'M',
+            }));
+          }
         }
-        console.log(selectedSize[product.id]);
-        
-      
-      return newCartState;
-    });
-  }
+     //console.log('Selected size:', selectedSize[product.id]);
+
+        return newCartState;
+      });
+    }
   };
 
   const goToProductPage = (id: number) => {

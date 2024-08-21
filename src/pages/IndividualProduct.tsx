@@ -5,13 +5,14 @@ import { TitemData } from '../Types/products';
 import { FaHeart } from 'react-icons/fa';
 import { useGlobalState } from '../StateContex';
 import Header from '../components/Header';
+import { toast } from 'react-toastify';
 
 const ItemPage = () => {
   const { id }: any = useParams();
-  const navigate = useNavigate();
+ 
 
-  const [addtocart, setAddToCart] = useState<boolean[]>(combinedData.map(() => false));
-  const { wishlist, setWishlist, cart, setCart, cartItem, setCartItem, selectedSize, setSelectedSize, search, setSearch } = useGlobalState();
+  //const [addtocart, setAddToCart] = useState<boolean[]>(combinedData.map(() => false));
+  const { wishlist, setWishlist, cart, setCart,cartItem, setCartItem, selectedSize, setSelectedSize, search, setSearch } = useGlobalState();
 
   const [product, setProduct] = useState<TitemData | undefined>(undefined);
 
@@ -28,26 +29,31 @@ const ItemPage = () => {
   };
 
   const handleAddToCart = (product: TitemData) => {
-    if (addtocart[product.id]) {
-      navigate('/cart');
-    } else {
-      setAddToCart((prevCartState: any) => ({
-        ...prevCartState,
-        [product.id]: true,
-      }));
-      setCart(cart + 1);
-      if (!(cartItem.includes(product))) {
-        setCartItem((prevCart: TitemData[]) => [...prevCart, product]);
-      }
-    }
+   
 
-    if (!selectedSize[product.id]) {
-      setSelectedSize((prevSize: string[]) => ({
-        ...prevSize,
-        [product.id]: 'M',
-      }));
+    const itemInCart = cartItem.find(
+      (item: any) => item.id===product.id && selectedSize[product.id]===item.selectedSize
+       );
+
+      //console.log(itemInCart);
+    if(itemInCart){
+      console.log("hello");
+      setCartItem((prevCart: any[])=>
+       prevCart.map((item)=> item.id===product.id && item.selectedSize === selectedSize[product.id]
+        ? {...item, quantity: item.quantity+1 }
+        : item))
+      }
+     
+      else{
+        setCartItem((prevCart: any[])=> 
+         [ ...prevCart, {...product, quantity: 1, selectedSize: selectedSize[product.id]},
+
+        ]);
+        setCart(cart + 1);
+      }
+      console.log(itemInCart);
+      
     }
-  }
 
   const toggleWishlist = (id: number) => {
     setWishlist((prevWishlist: any[]) => {

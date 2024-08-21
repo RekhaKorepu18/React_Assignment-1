@@ -298,4 +298,60 @@ body, html {
 .heart-icon.white {
   color: white;
 }
+/*========Cart page css==============*/
+.cart-page {
+  padding: 20px;
+  justify-content: center;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 0;
+}
+
+.cart-item img {
+  max-width: 100px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.cart-item h2 {
+  flex-grow: 1;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.cart-item p {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-controls button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 5px;
+}
+
+.quantity-controls button:hover {
+  background-color: #e0e0e0;
+}
+
+.quantity-controls span {
+  font-size: 18px;
+}
+
+
 
