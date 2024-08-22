@@ -48,14 +48,20 @@ export default function ItemCard({itemData}: {itemData: TitemData[]}) {
       setCartState((prevCartState: any[]) => {
         const newCartState = { ...prevCartState, [id]: true };
         setCart(cart + 1);
-        const itemInCart = cartItem.find(
+       const itemInCart = cartItem.find(
           (item: any) => item.id === product.id && selectedSize[product.id] === item.selectedSize
         );
+        if (!selectedSize[product.id]) {
+          setSelectedSize((prevSize: string[]) => ({
+            ...prevSize,
+            [product.id]: 'M',
+          }));
+        }
     if (itemInCart) {
           
           setCartItem((prevCart: any[]) =>
             prevCart.map((item) =>
-              item.id === product.id && item.selectedSize === selectedSize[product.id]
+              item.id === product.id && item.selectedSize === selectedSize[product.id] 
                 ? { ...item, quantity: item.quantity + 1 }
                 : item
             )
@@ -63,25 +69,23 @@ export default function ItemCard({itemData}: {itemData: TitemData[]}) {
         } else {
           setCartItem((prevCart: any[]) => [
             ...prevCart,
-            { ...product, quantity: 1, selectedSize: selectedSize[product.id] || 'M' },
+            { ...product, quantity: 1, selectedSize: selectedSize[product.id]|| 'M'},
           ]);
           setCart(cart + 1);
+          console.log(itemInCart);
 
 
-          if (!selectedSize[product.id]) {
-            setSelectedSize((prevSize: string[]) => ({
-              ...prevSize,
-              [product.id]: 'M',
-            }));
-          }
+         
         }
-     //console.log('Selected size:', selectedSize[product.id]);
+   
 
         return newCartState;
       });
     }
   };
-
+  
+  
+  
   const goToProductPage = (id: number) => {
     navigate(`/product/${id}`);
   };

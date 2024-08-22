@@ -417,6 +417,9 @@ body, html {
   background-image: linear-gradient(to top, #ebc0fd 0%, #d9ded8 100%);
   width : 150px;
 }
+.cart-empty h2 {
+  justify-content: center;
+}
 
 
 

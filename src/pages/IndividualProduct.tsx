@@ -4,7 +4,6 @@ import { combinedData } from '../data';
 import { TitemData } from '../Types/products';
 import { FaHeart } from 'react-icons/fa';
 import { useGlobalState } from '../StateContex';
-import Header from '../components/Header';
 import { toast } from 'react-toastify';
 
 const ItemPage = () => {
@@ -40,11 +39,12 @@ const ItemPage = () => {
        );
 
     if(itemInCart){
-      console.log("hello");
+      //console.log("hello");
       setCartItem((prevCart: any[])=>
        prevCart.map((item)=> item.id===product.id && item.selectedSize === selectedSize[product.id]
         ? {...item, quantity: item.quantity+1 }
         : item))
+        setCart(cart+1);
       }
      
       else{
@@ -54,7 +54,7 @@ const ItemPage = () => {
         ]);
         setCart(cart + 1);
       }
-      console.log(itemInCart);
+      //console.log(itemInCart);
       
     }
 
@@ -70,7 +70,7 @@ const ItemPage = () => {
 
   return (
     <div>
-      <Header count={cart} searchItem={search} setSearchItem={setSearch} />
+     
       <div className="product-page-container">
         <div className="product-page">
           <img src={product.imageUrl} alt="item" />

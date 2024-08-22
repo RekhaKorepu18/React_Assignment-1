@@ -1,14 +1,15 @@
 // import React, {useEffect, useState} from 'react';
 // import { useNavigate, useParams } from 'react-router-dom';
 //import { TitemData } from '../Types/products';
+
 import { useGlobalState } from '../StateContex';
-import Header from '../components/Header';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export const CartPage = () => {
-  const { cartItem, setCartItem, search, setSearch, cart} = useGlobalState();
+  const { cartItem, setCartItem, cart,setCart} = useGlobalState();
 
-  if (cartItem.length === 0) {
-    return <h2>Your cart feels lite</h2>;
+  if (cartItem.length===0) {
+    return <h2 className="cart-empty">Your cart feels lite</h2>;
   }
 
 
@@ -52,9 +53,7 @@ const removeFromCart = (id: number, size: string) => {
 };
 
 
-// const totalprice= ()=> {
-//   const sum=cartItem.reduce
-// }
+
 
   const totalPrice = cartItem.reduce(
     (total:any, item:any) => total + item.price * item.quantity,0);
@@ -66,11 +65,21 @@ const removeFromCart = (id: number, size: string) => {
   
   const totalAmount = totalPrice - discount;
   const savedMoney = totalPrice-totalAmount;
+  const placeOrder=() => {
+
+    toast.info("Thank you for shopping with us. Please Visit again");
+    setCart(0);
+    setCartItem([]);
+    console.log(cartItem);
+    if (cartItem.length===0) {
+      return <h2 className="cart-empty">Your cart feels lite</h2>;
+    }
+  }
 
 
   return (
     <>
-    <Header count={cart} searchItem={search} setSearchItem={setSearch} />
+
     <div className="cart-page">
       <div className="cart-items">
         <h1>Items in your Cart ({cart})</h1>
@@ -101,7 +110,7 @@ const removeFromCart = (id: number, size: string) => {
         <p className="savings">You saved ${savedMoney} on the order.</p>
         <div className="order-summary">
           <div className="total-price">Total Price: ${totalAmount}</div>
-          <button className="order-now-btn">Order Now</button>
+          <button className="order-now-btn" onClick={placeOrder}>Order Now</button>
         </div>
       </div>
     </div>

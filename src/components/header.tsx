@@ -9,8 +9,9 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-export default function Header({count, searchItem, setSearchItem}: {count: number, searchItem: string, setSearchItem: (name: string) => void }){
+export default function Header(){
   const navigate = useNavigate();
+  const {cart, search, setSearch}= useGlobalState();
     return (
         <>
         <nav className="header-box">
@@ -21,13 +22,13 @@ export default function Header({count, searchItem, setSearchItem}: {count: numbe
             <div className="nav-right">
                 <div className="search-container">
                     <input id="search-form" className="search-bar" placeholder="Search"
-                    value = {searchItem}
-                    onChange= {(product)=> setSearchItem(product.target.value)} />
+                    value = {search}
+                    onChange= {(product)=> setSearch(product.target.value)} />
                     <img src="/assets/search_icon.png" alt="Search Icon" className="search-icon" />
                 </div>
                 <div className="cart-icon" onClick={()=>navigate('/cart')}>
                     <img src="/assets/cart_icon.png" alt="Cart Icon" />
-                    {count > 0 && <div className="cart-count">{count}</div>}
+                    {cart > 0 && <div className="cart-count">{cart}</div>}
                 </div>
                 <button className="login-button">LogIn</button>
             </div>
@@ -39,11 +40,11 @@ export function RenderProducts(){
   //const { wishlist, setWishlist, cart, setCart, cartState, setCartState,search, setSearch, notify, setNotify } = useGlobalState();
    const {cart,search, setSearch} = useGlobalState();
     const isSearching = search.length > 0;
-     console.log(filteredData.length);
+     
     return (
       <div className="App">
         <header className="App-header">
-          <Header count={cart} searchItem={search} setSearchItem={setSearch} />
+          {/* <Header cart={cart} searchItem={search} setSearchItem={setSearch} /> */}
   
            {isSearching ? (
             <>
