@@ -109,6 +109,27 @@ export const itemData: TitemData[] = [
     isAvailable : true
   }
 ];
+// let itemData: TitemData[] = [];
+// let discountItemData: TitemData[] = [];
+// fetch('http://localhost:3000/api/Hanami_products/items')
+//     .then(response => response.json())
+//     .then(data => {
+//         itemData = data;
+//     })
+    
+//     .catch(error => console.error('Error fetching items:', error))
+
+//     fetch('http://localhost:3000/api/Hanami_products/discountitems')
+//     .then(response => response.json())
+//     .then(data => {
+//         discountItemData = data;
+       
+//     })
+//     .catch(error => console.error('Error fetching discounted items:', error));
+//     console.log(itemData);
+
+// export{itemData, discountItemData}
+
 export const combinedData = [...itemData, ...discountItemData];
 
 

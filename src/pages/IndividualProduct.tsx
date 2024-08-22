@@ -9,9 +9,7 @@ import { toast } from 'react-toastify';
 const ItemPage = () => {
   const { id }: any = useParams();
  
-
-  //const [addtocart, setAddToCart] = useState<boolean[]>(combinedData.map(() => false));
-  const { wishlist, setWishlist, cart, setCart,cartItem, setCartItem, selectedSize, setSelectedSize, search, setSearch } = useGlobalState();
+  const { wishlist, setWishlist, cart, setCart,cartItem, setCartItem, selectedSize, setSelectedSize } = useGlobalState();
 
   const [product, setProduct] = useState<TitemData | undefined>(undefined);
 
@@ -54,7 +52,6 @@ const ItemPage = () => {
         ]);
         setCart(cart + 1);
       }
-      //console.log(itemInCart);
       
     }
 

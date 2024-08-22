@@ -1,7 +1,3 @@
-// import React, {useEffect, useState} from 'react';
-// import { useNavigate, useParams } from 'react-router-dom';
-//import { TitemData } from '../Types/products';
-
 import { useGlobalState } from '../StateContex';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
