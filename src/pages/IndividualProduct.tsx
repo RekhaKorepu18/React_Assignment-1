@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { combinedData } from '../data';
 import { TitemData } from '../Types/products';
 import { FaHeart } from 'react-icons/fa';
@@ -39,7 +39,6 @@ const ItemPage = () => {
       (item: any) => item.id===product.id && selectedSize[product.id]===item.selectedSize
        );
 
-      //console.log(itemInCart);
     if(itemInCart){
       console.log("hello");
       setCartItem((prevCart: any[])=>

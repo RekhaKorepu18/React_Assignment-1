@@ -211,7 +211,7 @@ body, html {
   display: flex;
 }
 /*====================Individual Page========*/
-/* Ensures the content renders after the header component */
+
 
 .product-page-container {
   padding: 40px;
@@ -221,7 +221,7 @@ body, html {
   margin-top: 80px;
 }
 
-/* Flexbox layout to align the image on the left and info on the right */
+
 .product-page {
   display: flex;
   justify-content: center;
@@ -300,8 +300,26 @@ body, html {
 }
 /*========Cart page css==============*/
 .cart-page {
+  display: flex;
+  justify-content: space-between;
   padding: 20px;
-  justify-content: center;
+  gap: 20px;
+}
+
+.cart-items {
+  margin-top: 5%;
+  flex: 0 0 60%; 
+}
+
+.payment-details {
+  flex: 0 0 30%;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  margin-top: 10%;
+  /* margin: 20px auto; */
 }
 
 .cart-item {
@@ -330,7 +348,7 @@ body, html {
   margin-bottom: 5px;
 }
 
-.quantity-controls {
+.quantity {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -349,9 +367,60 @@ body, html {
   background-color: #e0e0e0;
 }
 
-.quantity-controls span {
+.quantity span {
   font-size: 18px;
 }
+
+.payment-details h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.details p {
+  font-size: 14px;
+  margin: 8px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.savings {
+  font-size: 16px;
+  color: #28a745;
+  text-align: center;
+  margin: 16px 0;
+}
+
+.order-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.total-price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.order-now-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.remove-cart {
+  /* margin-right: 12%; */
+  border-radius : 8px;
+  background-image: linear-gradient(to top, #ebc0fd 0%, #d9ded8 100%);
+  width : 150px;
+}
+
+
+
+
 
 
 
