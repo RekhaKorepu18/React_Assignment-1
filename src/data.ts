@@ -3,7 +3,7 @@ import { TitemData } from "./Types/products";
 export const discountItemData: TitemData[] = [
 {
     id: 1,
-    imageUrl: "/assets/Crisscross _A-Line _Dress.jpeg",
+    imageUrl: "/assets/merun_top.webp",
     name: "Criscross A-Line Dress",
     price: 550,
     rating: 4.5,
