@@ -7,14 +7,19 @@ Screenshots
 Technologies used
 
 ### About the project
-Hanami is a React-based application designed to display the collections within the store. The website has some special features like availability indicator, discount highlights and searching by name functionality.
+Hanami is a React-based application designed to display the collections within the store. The website has some special features like availability indicator, discount highlights and searching by name functionality. It is a responsive website that includes user-friendly interaction and enhancing the user-experience.
 
 ### Features
-Discount Highlights
-Wishlist Functionality
-AddTOCart Functionality
-Availability Indicator
-Interactive UI
+- Discount Highlights
+- Wishlist Functionality
+- AddTOCart Functionality
+- Availability Indicator
+- Interactive UI
+- Individual page for products
+- Cart page for products
+- Order Details
+- Toast Notifications
+
 
 
 Install the dependencies
@@ -30,17 +35,17 @@ Runs the app in the development mode.
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### screenshots
-Discounted items
-![alt text](<Screenshot 2024-08-14 at 10.44.28 AM-1.png>)
-Products
-![alt text](<Screenshot 2024-08-14 at 10.44.48 AM.png>)
+### Screenshots
+ * Home Page
+ ![alt text](<Screenshot 2024-08-22 at 6.27.36 PM.png>)
 
-Searching Products
-![alt text](<Screenshot 2024-08-14 at 10.45.14 AM.png>)
+ * Individual Product Page.
+ ![alt text](<Screenshot 2024-08-22 at 6.27.58 PM.png>)
 
-### Technologies Used
-React JS
+ *Cart Page
+ ![alt text](<Screenshot 2024-08-22 at 6.29.02 PM.png>)
+ 
+
 
 
 
