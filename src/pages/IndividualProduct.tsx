@@ -28,16 +28,13 @@ const ItemPage = () => {
     }));
   };
   const handleClick = (id: number) => {
-    // if (notify[id]=== undefined) {
-    //   return;
-    // }
      setNotify((prev: any[]) => {
       const updatedNotify = {...prev, [id]:!prev[id]};
       return updatedNotify;
         
      });
      toast.info("Notify me when the item is available!");
-     //console.log("hello",notify[id]);
+   
 }
 
   const handleAddToCart = (product: TitemData) => {
