@@ -9,9 +9,9 @@ const CartPage = () => {
   const { cartItem, setCartItem, cart, setCart } = useGlobalState();
   const [popupState, setPopupState] = useState<{ show: boolean; item: { id: number; size: string } | null }>({ show: false, item: null });
 
-  const renderCartEmptyMessage = () => {
+  const CartEmpty = () => {
     if (cart === 0) {
-      return <h2 className="cart-empty">Your cart feels lite</h2>;
+      return <h2 className="cart-empty">Your cart is empty.</h2>;
     }
     return null;
   };
@@ -93,7 +93,7 @@ const CartPage = () => {
     <>
      
         <div className="cart-page">
-               {renderCartEmptyMessage()}
+               {CartEmpty()}
           <div className="cart-items">
            <h1>Items in your Cart ({cart})</h1>
             {cartItem.map((product: any) => (
