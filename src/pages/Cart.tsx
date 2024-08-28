@@ -83,7 +83,7 @@ const CartPage = () => {
   const totalAmount = totalPrice - discount;
   const savedMoney = totalPrice - totalAmount;
 
-  const placeOrder = (totalAmount: number) => {
+  const OrderItems = (totalAmount: number) => {
     toast.info(`Your total amount is $${totalAmount}. Thank you for shopping with us. Please visit again.`);
     setCart(0);
     setCartItem([]);
@@ -124,7 +124,7 @@ const CartPage = () => {
             <p className="savings">You saved ${savedMoney} on the order.</p>
             <div className="order-summary">
               <div className="total-price">Total Price: ${totalAmount}</div>
-              <button className="order-now-btn" onClick={() => placeOrder(totalAmount)}>Order Now</button>
+              <button className="order-now-btn" onClick={()=> OrderItems(totalAmount)}>Order Now</button>
             </div>
           </div>
 }
