@@ -16,11 +16,11 @@ const CartPage = () => {
     return null;
   };
 
+ 
   useEffect(() => {
     const totalItems = cartItem.reduce((total: any, item: any) => total + item.quantity, 0);
     setCart(totalItems);
   }, [cartItem, setCart]);
-
   
   const Popup = ({ message, onConfirm, onCancel }: { message: string; onConfirm: () => void; onCancel: () => void }) => {
     return (
