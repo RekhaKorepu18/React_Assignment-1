@@ -1,0 +1,111 @@
+.item {
+    display : flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 30px;
+  }
+  .item-image img{
+  
+      width : 300px;
+      height : 300px;
+      margin-top: 15%;
+      transition: opacity 0.3s ease;
+      
+  
+  }
+  .item-image.dimmed img {
+    width : 300px;
+    height : 300px;
+    margin-top: 15%;
+    opacity : 0.4;
+  }
+  
+  .item-card {
+    
+    display : flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+   
+  }
+  .item-image:hover {
+    filter: brightness(100%); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transform: scale(1.05); 
+  }
+  .price-rating{
+    display: flex;
+    justify-content: center;
+    gap : 30px;
+  
+    
+  }
+  .wishlist-notify {
+    
+    margin-top : 4%;
+    margin-bottom: 3%;
+    border-radius : 4px;
+    justify-content: center;
+    gap : 20px;
+    display: flex;
+    
+  }
+  .discount-description {
+    margin-left: 35%;
+    margin-top : 7%;
+    color : purple;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .item-title {
+    margin-left: 35%;
+    margin-top: 8%;
+     color : purple;
+  }
+  .discount-items {
+    justify-content: center;
+    
+  }
+  .discount {
+    color: red;
+  }
+  .heart-icon {
+   
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .add-cart  {
+    margin-right: 20%;
+    border-radius : 8px;
+    background-image: linear-gradient(to top, #ebc0fd 0%, #d9ded8 100%);
+    width : 100px;
+  }
+  .heart-icon.red {
+    color: red;
+  }
+  .heart-icon.white{
+    color: white;
+    /* border: 2px solid  black; */
+    border-radius: 0px 0px;
+    stroke: black;
+    stroke-width: 40px;
+  }
+  .notify-button {
+    background-color: lightgreen;
+    border-radius : 8px;
+    margin-left: 10px;
+    width : 100px;
+  }
+  /*===============*/
+  .exclusive-deals {
+    justify-content: center;
+    display: flex;
+    align-content: center;
+    margin-left: 50;
+  
+  }
+  .our-products {
+    align-items: center;
+    display: flex;
+  }
